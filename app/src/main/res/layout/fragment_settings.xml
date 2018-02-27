@@ -1,0 +1,75 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dell.kobitaapps.SettingsFragment">
+
+ <android.support.constraint.ConstraintLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_margin="5dp">
+
+
+     <TextView
+         android:id="@+id/font_change_textview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="8dp"
+         android:layout_marginTop="32dp"
+         android:text="Change Font"
+         android:padding="4dp"
+         android:background="@color/Pastel_Green"
+
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/show_demo_text"
+         tools:text="Change Font"
+         android:layout_marginLeft="8dp" />
+
+     <Spinner
+         android:id="@+id/font_spinner"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginEnd="8dp"
+         android:layout_marginStart="24dp"
+         android:layout_marginTop="32dp"
+         android:padding="4dp"
+         android:minWidth="100dp"
+         android:minHeight="20dp"
+         android:background="@color/Pastel_Green"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintHorizontal_bias="0.0"
+         app:layout_constraintStart_toEndOf="@+id/font_change_textview"
+         app:layout_constraintTop_toBottomOf="@+id/show_demo_text"
+         android:layout_marginRight="8dp"
+         android:layout_marginLeft="30dp" />
+
+     <TextView
+         android:id="@+id/show_demo_text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginEnd="8dp"
+         android:layout_marginStart="8dp"
+         android:layout_marginTop="8dp"
+         android:text="@string/sample_text"
+         android:lineSpacingExtra="8sp"
+         android:textSize="16sp"
+         android:background="@drawable/border"
+         android:padding="10dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+
+     <Button
+         android:id="@+id/apply_btn"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginEnd="24dp"
+         android:layout_marginTop="24dp"
+         android:text="Apply"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toBottomOf="@+id/font_spinner"
+         android:layout_marginRight="24dp" />
+ </android.support.constraint.ConstraintLayout>
+
+</ScrollView>

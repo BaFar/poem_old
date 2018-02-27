@@ -1,0 +1,39 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dell.kobitaapps.PoetFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <ImageView
+            android:id="@+id/poet_picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/kazi_nazrul"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/poet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="Poet Name"
+            android:textSize="22sp"/>
+        <TextView
+            android:id="@+id/poet_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Its very easy and simple to type in Bengali (Bangla Type) using unicode. Just type the text in english in the given box and press space, it will convert the text in Bangla script. Click on a word to see more options. To switch between Bengali and English use ctrl + g. Now copy the text and use it anywhere on emails, chat, facebook, twitter or any website"
+            android:textSize="16sp"
+            android:lineSpacingExtra="8dp"/>
+    </LinearLayout>
+
+</ScrollView>
