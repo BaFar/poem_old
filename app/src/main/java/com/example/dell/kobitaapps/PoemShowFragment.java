@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class PoemShowFragment extends Fragment {
 
         poems = getActivity().getResources().getStringArray(R.array.poems);
         poemTitles = getActivity().getResources().getStringArray(R.array.poem_titles);
+        Log.d("position","clicked pos: "+position);
 
         return v;
     }
@@ -46,9 +48,20 @@ public class PoemShowFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        PoemAdapter adapter = new PoemAdapter(getActivity(),poemTitles,poems);
+       // PoemAdapter adapter = new PoemAdapter(getActivity(),poemTitles,poems);
+        PoemAdapter adapter = new PoemAdapter(getActivity());
         poemLV.setAdapter(adapter);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+
+       // poemLV.smoothScrollToPosition(position);
+       // poemLV.smoothScrollToPosition(position,20);
+        poemLV.setSelection(position);
 
     }
 }

@@ -22,6 +22,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by DELL on 2/15/2018.
  */
@@ -30,19 +35,39 @@ public class PoemAdapter extends BaseAdapter implements View.OnClickListener{
     private Context context;
     private String[] poems;
     private String[] poemTitles;
+    private String[] dedications;
     private String poetName = null;
+    private Typeface tf;
+    private boolean[] havededication = new boolean[75];
+    private Map<Integer,String> dedicationMap;
+    private int[] dedication_poem_list= {6,10,11,12,36,58,60};  /*list which poem has dedication: 0 index based*/
+
 
     PoemAdapter(){
         context = null;
         poems = null;
         poemTitles = null;
+       // Arrays.fill(havededication,Boolean.FALSE);
+
     }
 
-    public PoemAdapter(Context context, String[] poemTitles, String[] poems){
+    public PoemAdapter(Context context){
+
         this.context = context;
-        this.poemTitles = poemTitles;
-        this.poems = poems;
+        this.poemTitles =context.getResources().getStringArray(R.array.poem_titles);
+        this.poems = context.getResources().getStringArray(R.array.poems);
+        this.dedications = context.getResources().getStringArray(R.array.dedications);
         poetName = context.getResources().getString(R.string.poet_name);
+        tf = Utils.getTypeface(context);
+
+        dedicationMap = new HashMap<>();
+
+        for (int k =0; k<7; k++){  /* here number of dedication is 7*/
+            dedicationMap.put(dedication_poem_list[k],dedications[k]);
+            havededication[dedication_poem_list[k]]=true;
+        }
+
+
     }
 
     @Override
@@ -65,29 +90,36 @@ public class PoemAdapter extends BaseAdapter implements View.OnClickListener{
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         view = inflater.inflate(R.layout.single_poem_view, viewGroup, false);
         TextView titleTV = view.findViewById(R.id.poem_title);
+        TextView dedicationTV = view.findViewById(R.id.dedication);
         TextView poemTV = view.findViewById(R.id.poem);
         Button copy = view.findViewById(R.id.copy);
         Button sms = view.findViewById(R.id.sms);
         Button share = view.findViewById(R.id.share);
 
-        //String tag = String.valueOf(i);
-
         copy.setTag(i);/*string tag worked but try with int*/
         sms.setTag(i);
         share.setTag(i);
-
 
         copy.setOnClickListener(this);
         sms.setOnClickListener(this);
         share.setOnClickListener(this);
 
        // Typeface tf = Typeface.createFromAsset(context.getAssets(), "Fonts/DestinyMJ.ttf");
-        Typeface tf = Utils.getTypeface(context);
+
         titleTV.setTypeface(tf);
         poemTV.setTypeface(tf);
 
         poemTV.setText(poems[i]);
         titleTV.setText(poemTitles[i]);
+
+       // Log.d("dedicationlist" ,""+i+"  "+poemTitles[i]);
+
+        if (havededication[i]){
+            dedicationTV.setText(dedicationMap.get(i));
+        }
+        else {
+            dedicationTV.setVisibility(View.GONE);
+        }
 
         return view;
     }

@@ -3,11 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context="com.example.dell.kobitaapps.SettingsFragment">
 
  <android.support.constraint.ConstraintLayout
      android:layout_width="match_parent"
-     android:layout_height="match_parent"
+     android:layout_height="wrap_content"
      android:layout_margin="5dp">
 
 
@@ -19,8 +20,8 @@
          android:layout_marginTop="32dp"
          android:text="Change Font"
          android:padding="4dp"
-         android:background="@color/Pastel_Green"
-
+         android:background="@color/GrannySmithApple"
+         android:textColor="@color/White"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toBottomOf="@+id/show_demo_text"
          tools:text="Change Font"
@@ -36,7 +37,7 @@
          android:padding="4dp"
          android:minWidth="100dp"
          android:minHeight="20dp"
-         android:background="@color/Pastel_Green"
+         android:background="@color/GrannySmithApple"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintHorizontal_bias="0.0"
          app:layout_constraintStart_toEndOf="@+id/font_change_textview"
@@ -50,12 +51,12 @@
          android:layout_height="wrap_content"
          android:layout_marginEnd="8dp"
          android:layout_marginStart="8dp"
-         android:layout_marginTop="8dp"
-         android:text="@string/sample_text"
-         android:lineSpacingExtra="8sp"
-         android:textSize="16sp"
+         android:layout_marginTop="20dp"
          android:background="@drawable/border"
+         android:lineSpacingExtra="8sp"
          android:padding="10dp"
+         android:text="@string/sample_text"
+         android:textSize="16sp"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent" />
@@ -64,12 +65,16 @@
          android:id="@+id/apply_btn"
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
-         android:layout_marginEnd="24dp"
-         android:layout_marginTop="24dp"
+         android:layout_marginBottom="16dp"
+         android:layout_marginEnd="16dp"
+         android:layout_marginTop="32dp"
+         android:background="@color/GrannySmithApple"
          android:text="Apply"
+         android:textColor="@color/White"
+         app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintTop_toBottomOf="@+id/font_spinner"
-         android:layout_marginRight="24dp" />
+         android:layout_marginRight="16dp" />
  </android.support.constraint.ConstraintLayout>
 
 </ScrollView>

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <color name="colorPrimary">#7ee638</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="ColorStarship">#efc2f345</color>
     <color name="Conifer">#ef7ee638</color>
+    <color name="PictonBlue">#ef3892e6</color>
+    <color name="GrannySmithApple">#efa8e49b</color>
     <color name="MineShaf">#ed262424</color>
     <color name="Edgewater">#c3dfd1</color>
     <color name="Black">#000000</color>
     <color name="Pastel_Green">#bc7ad797</color>
+    <color name="White">#FFFFFF</color>
 </resources>

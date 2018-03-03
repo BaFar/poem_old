@@ -47,10 +47,9 @@ public class PoetFragment extends Fragment {
 
         Typeface tf = Utils.getTypeface(getActivity());
 
-        poet_pictureIV.setImageResource(R.drawable.kazi_nazrul);
+        poet_pictureIV.setImageResource(R.drawable.poet_photo);
         poet_nameTV.setText(R.string.poet_name);
         poet_detailsTV.setText(R.string.poet_details);
-
         poet_nameTV.setTypeface(tf);
         poet_detailsTV.setTypeface(tf);
 

@@ -82,24 +82,26 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        if (savedInstanceState == null){
 
-        PoemTitleFragment titleFragment = (PoemTitleFragment) fm.findFragmentByTag(POEM_TITLE_FRAGMENT_TAG);
-        if (titleFragment == null){
-            titleFragment = new PoemTitleFragment();
-            ft.add(R.id.fragment_container,titleFragment,POEM_TITLE_FRAGMENT_TAG);
-            ft.addToBackStack(POEM_TITLE_FRAGMENT_TAG);
+            PoemTitleFragment titleFragment = (PoemTitleFragment) fm.findFragmentByTag(POEM_TITLE_FRAGMENT_TAG);
+            if (titleFragment == null){
+                titleFragment = new PoemTitleFragment();
+                ft.add(R.id.fragment_container,titleFragment,POEM_TITLE_FRAGMENT_TAG);
+                ft.addToBackStack(POEM_TITLE_FRAGMENT_TAG);
+            }
+            else {
+                ft.replace(R.id.fragment_container,titleFragment,POEM_TITLE_FRAGMENT_TAG);
+                ft.addToBackStack(POEM_TITLE_FRAGMENT_TAG);
+            }
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+            ft.commit();
         }
-        else {
-            ft.replace(R.id.fragment_container,titleFragment,POEM_TITLE_FRAGMENT_TAG);
-            ft.addToBackStack(POEM_TITLE_FRAGMENT_TAG);
-        }
-        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        ft.commit();
-
 
 
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -290,3 +292,4 @@ public class MainActivity extends AppCompatActivity
         /* F:\Android\sdk\platform-tools\adb connect 192.168.0.100*/
     }
 }
+/*F:\Android\sdk\Platform-toolsadb connect 192.168.0.100*/
