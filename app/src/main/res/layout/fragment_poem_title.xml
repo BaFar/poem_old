@@ -12,10 +12,4 @@
 
 
  </ListView>
-   <!-- <TextView
-        android:id="@+id/sample_textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="মার্কিন যুক্তরাষ্ট্রের ফ্লোরিডা অঙ্গরাজ্যের পার্কল্যান্ড শহরের একটি হাই স্কুলে সাবেক এক ছাত্রের "/>-->
-
 </FrameLayout>

@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/Conifer"
+            android:background="@color/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" >
 
             <LinearLayout
@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:text="Did you know"
                     android:id="@+id/appTitle"
-                    android:textColor="@color/MineShaf" />
+                    android:textColor="@color/TextColorOnP"/>
             </LinearLayout>
         </android.support.v7.widget.Toolbar>
 

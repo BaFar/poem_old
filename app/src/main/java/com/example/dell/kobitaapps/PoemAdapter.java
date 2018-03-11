@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.provider.Telephony;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,8 @@ public class PoemAdapter extends BaseAdapter implements View.OnClickListener{
     private boolean[] havededication = new boolean[75];
     private Map<Integer,String> dedicationMap;
     private int[] dedication_poem_list= {6,10,11,12,36,58,60};  /*list which poem has dedication: 0 index based*/
+    private String very_bad_part1 ,very_bad_part2,very_bad_part3;
+
 
 
     PoemAdapter(){
@@ -66,6 +69,13 @@ public class PoemAdapter extends BaseAdapter implements View.OnClickListener{
             dedicationMap.put(dedication_poem_list[k],dedications[k]);
             havededication[dedication_poem_list[k]]=true;
         }
+        //very_bad_part1 = Html.fromHtml(" context.getResources().getString(R.string.very_bad_part1))''
+        very_bad_part1 =  context.getResources().getString(R.string.very_bad_part1);
+        very_bad_part2 =  context.getResources().getString(R.string.very_bad_part2);
+        very_bad_part3 =  context.getResources().getString(R.string.very_bad_part3);
+
+
+       // Html.fromHtml("<font face=Verdana>"+very_bad_part1+"</font>"+<fvery_bad_part2+);
 
 
     }
@@ -104,15 +114,19 @@ public class PoemAdapter extends BaseAdapter implements View.OnClickListener{
         sms.setOnClickListener(this);
         share.setOnClickListener(this);
 
-       // Typeface tf = Typeface.createFromAsset(context.getAssets(), "Fonts/DestinyMJ.ttf");
 
         titleTV.setTypeface(tf);
         poemTV.setTypeface(tf);
 
-        poemTV.setText(poems[i]);
-        titleTV.setText(poemTitles[i]);
+        if (i == 16){
+            titleTV.setText(Html.fromHtml("<font face=\"Choco cooky\">"+poemTitles[16]+"</font>"));
+            poemTV.setText(Html.fromHtml(context.getResources().getString(R.string.very_bad_part1)+"<font face=\"Choco cooky\"> Very Bad.</font>"+context.getResources().getString(R.string.very_bad_part2)+"<font face=\"Choco cooky\"> Very Bad.</font>"+context.getResources().getString(R.string.very_bad_part3)));
+        }
+        else {
+            poemTV.setText(poems[i]);
+            titleTV.setText(poemTitles[i]);
+        }
 
-       // Log.d("dedicationlist" ,""+i+"  "+poemTitles[i]);
 
         if (havededication[i]){
             dedicationTV.setText(dedicationMap.get(i));

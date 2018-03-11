@@ -46,7 +46,6 @@ public class PoetFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         Typeface tf = Utils.getTypeface(getActivity());
-
         poet_pictureIV.setImageResource(R.drawable.poet_photo);
         poet_nameTV.setText(R.string.poet_name);
         poet_detailsTV.setText(R.string.poet_details);

@@ -17,6 +17,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -289,7 +290,7 @@ public class MainActivity extends AppCompatActivity
         Typeface tf = Typeface.createFromAsset(getAssets(),"Fonts/"+font_name);
         appTitleTV.setTypeface(tf);
 
-        /* F:\Android\sdk\platform-tools\adb connect 192.168.0.100*/
+
     }
 }
 /*F:\Android\sdk\Platform-toolsadb connect 192.168.0.100*/

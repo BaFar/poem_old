@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,7 +73,7 @@ public class SettingsFragment extends Fragment{
 
                 font_name = Utils.fontsNames[i];
                 Toast.makeText(getActivity(), ""+font_name, Toast.LENGTH_SHORT).show();
-                Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"Fonts/"+font_name);
+                Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"Fonts/"+font_name+".ttf");
                 demo_text_TV.setTypeface(tf);
               //  demo_text_TV.setText(R.string.sample_text);
 

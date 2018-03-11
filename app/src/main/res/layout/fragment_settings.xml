@@ -18,13 +18,13 @@
          android:layout_height="wrap_content"
          android:layout_marginStart="8dp"
          android:layout_marginTop="32dp"
-         android:text="Change Font"
+         android:text="Font"
          android:padding="4dp"
-         android:background="@color/GrannySmithApple"
-         android:textColor="@color/White"
+         android:background="@color/colorSecoundary"
+         android:textColor="@color/TextColorOnS"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toBottomOf="@+id/show_demo_text"
-         tools:text="Change Font"
+         tools:text="Font"
          android:layout_marginLeft="8dp" />
 
      <Spinner
@@ -37,7 +37,7 @@
          android:padding="4dp"
          android:minWidth="100dp"
          android:minHeight="20dp"
-         android:background="@color/GrannySmithApple"
+         android:background="@color/colorSecoundary"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintHorizontal_bias="0.0"
          app:layout_constraintStart_toEndOf="@+id/font_change_textview"
@@ -68,13 +68,17 @@
          android:layout_marginBottom="16dp"
          android:layout_marginEnd="16dp"
          android:layout_marginTop="32dp"
-         android:background="@color/GrannySmithApple"
+         android:foreground="?attr/selectableItemBackground"
+         android:background="@color/colorSecoundary"
          android:text="Apply"
          android:textColor="@color/White"
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintTop_toBottomOf="@+id/font_spinner"
          android:layout_marginRight="16dp" />
+
  </android.support.constraint.ConstraintLayout>
+
+
 
 </ScrollView>

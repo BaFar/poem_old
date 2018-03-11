@@ -54,9 +54,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@color/ColorStarship"
                     android:paddingTop="3dp"
                     android:layout_marginRight="5dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:background="@color/colorPrimaryLight"
                     android:drawableTop="@drawable/ic_content_copy_black_24dp"
                     android:text="Copy"/>
 
@@ -69,17 +70,18 @@
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
                     android:paddingTop="3dp"
-                    android:background="@color/ColorStarship"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:background="@color/colorPrimaryLight"
                     android:drawableTop="@drawable/ic_sms_black_24dp"
                     android:text="SMS" />
                 <Button
                     android:id="@+id/share"
-                    android:background="@color/ColorStarship"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-
                     android:layout_marginLeft="5dp"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:background="@color/colorPrimaryLight"
                     android:drawableTop="@drawable/ic_share_black_24dp"
                     android:text="Share"
                     android:onClick="sharePoem"/>
