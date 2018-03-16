@@ -1,0 +1,73 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.dell.kobitaapps.SettingsFragment">
+
+ <android.support.constraint.ConstraintLayout
+     android:layout_width="match_parent"
+     android:layout_height="wrap_content"
+     android:layout_margin="5dp">
+
+
+     <TextView
+         android:id="@+id/font_change_textview"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginEnd="16dp"
+         android:layout_marginTop="8dp"
+         android:background="@color/colorSecoundary"
+         android:padding="4dp"
+         android:text="Font"
+         android:textColor="@color/TextColorOnS"
+         app:layout_constraintEnd_toStartOf="@+id/font_spinner"
+         app:layout_constraintTop_toTopOf="parent"
+         tools:text="Font" />
+
+     <Spinner
+         android:id="@+id/font_spinner"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginEnd="16dp"
+         android:layout_marginTop="8dp"
+         android:background="@color/colorSecoundary"
+         android:minHeight="20dp"
+         android:minWidth="100dp"
+         android:padding="4dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+
+     <TextView
+         android:id="@+id/show_demo_text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginStart="8dp"
+         android:layout_marginTop="28dp"
+         android:background="@drawable/border"
+         android:lineSpacingExtra="8sp"
+         android:padding="10dp"
+         android:text="@string/sample_text"
+         android:textSize="16sp"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+
+     <Button
+         android:id="@+id/apply_btn"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="16dp"
+         android:layout_marginEnd="16dp"
+         android:background="@color/colorSecoundary"
+         android:foreground="?attr/selectableItemBackground"
+         android:text="Apply"
+         android:textColor="@color/White"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintEnd_toEndOf="parent" />
+
+ </android.support.constraint.ConstraintLayout>
+
+
+
+</ScrollView>

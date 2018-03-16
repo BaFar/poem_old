@@ -1,22 +1,57 @@
 package com.example.dell.kobitaapps;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import java.util.zip.Inflater;
 
 /**
  * Created by DELL on 2/15/2018.
  */
 
-public class TitleAdapter extends ArrayAdapter<String> {
+public class TitleAdapter extends RecyclerView.Adapter<ReactiveTitleViewHolder> {
+
     private Context context;
+    private String[] poemTitles;
+    private ReactiveTitleViewHolder.OnTitleClickListener listener;
+
+    public TitleAdapter(Context context, String[] poemTitles, ReactiveTitleViewHolder.OnTitleClickListener clickListener) {
+        this.context = context;
+        this.poemTitles = poemTitles;
+        this.listener = clickListener;
+    }
+
+    @Override
+    public ReactiveTitleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+       View v =  inflater.inflate(R.layout.single_title_view,parent,false);
+        ReactiveTitleViewHolder titleViewHolder = new ReactiveTitleViewHolder(v, listener);
+        return titleViewHolder;
+    }
+
+    @Override
+    public void onBindViewHolder(ReactiveTitleViewHolder holder, int position) {
+        holder.titleTV.setTypeface(Utils.getTypeface(context));
+        holder.titleTV.setText(poemTitles[position]);
+        if (position == 16 ){
+            holder.titleTV.setText(Html.fromHtml("<font face=\"Choco cooky\">"+poemTitles[position]+"</font>"));
+        }
+        holder.setTitlePos(position);
+    }
+
+    @Override
+    public int getItemCount() {
+        return poemTitles.length;
+    }
+
+}
+/*
+ private Context context;
     private String[] poemTitles;
 
 
@@ -44,5 +79,4 @@ public class TitleAdapter extends ArrayAdapter<String> {
         }
 
         return convertView;
-    }
-}
+    }*/

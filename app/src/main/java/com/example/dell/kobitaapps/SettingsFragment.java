@@ -29,6 +29,7 @@ public class SettingsFragment extends Fragment{
     private Button applyBtn;
     private String font_name=null;
     private FontChangeListener fontChangeListener;
+    private String[] fontnamesWithoutExtension=null;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -65,7 +66,16 @@ public class SettingsFragment extends Fragment{
 
         });
 
-        ArrayAdapter<String> fontAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,Utils.fontsNames);
+        int numberOfFonts = Utils.fontsNames.length;
+
+        fontnamesWithoutExtension= new String[numberOfFonts+5];
+
+        for (int i=0; i<numberOfFonts; i++){
+            fontnamesWithoutExtension[i] = Utils.fontsNames[i];
+            fontnamesWithoutExtension[i] = fontnamesWithoutExtension[i].substring(0,fontnamesWithoutExtension[i].indexOf(".")-1);
+        }
+
+        ArrayAdapter<String> fontAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,fontnamesWithoutExtension);
         fontSpinner.setAdapter(fontAdapter);
         fontSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -73,7 +83,7 @@ public class SettingsFragment extends Fragment{
 
                 font_name = Utils.fontsNames[i];
                 Toast.makeText(getActivity(), ""+font_name, Toast.LENGTH_SHORT).show();
-                Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"Fonts/"+font_name+".ttf");
+                Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"Fonts/"+font_name);
                 demo_text_TV.setTypeface(tf);
               //  demo_text_TV.setText(R.string.sample_text);
 

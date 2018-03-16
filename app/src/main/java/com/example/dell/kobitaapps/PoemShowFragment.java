@@ -1,25 +1,22 @@
 package com.example.dell.kobitaapps;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 
 public class PoemShowFragment extends Fragment {
 
 
-    private ListView poemLV;
+    private RecyclerView poemRV;
     private String[] poemTitles;
     private String[] poems;
     private  int position=0;
@@ -35,10 +32,10 @@ public class PoemShowFragment extends Fragment {
         View v= inflater.inflate(R.layout.fragment_single_poem, container, false);
         position =getArguments().getInt("clicked_position",0);
 
-        poemLV = v.findViewById(R.id.poem_listView);
+        poemRV = v.findViewById(R.id.poem_recyclerView);
 
-        poems = getActivity().getResources().getStringArray(R.array.poems);
-        poemTitles = getActivity().getResources().getStringArray(R.array.poem_titles);
+      //  poems = getActivity().getResources().getStringArray(R.array.poems);
+      //  poemTitles = getActivity().getResources().getStringArray(R.array.poem_titles);
         Log.d("position","clicked pos: "+position);
 
         return v;
@@ -49,8 +46,16 @@ public class PoemShowFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
        // PoemAdapter adapter = new PoemAdapter(getActivity(),poemTitles,poems);
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(getActivity());
+        poemRV.setLayoutManager(manager);
         PoemAdapter adapter = new PoemAdapter(getActivity());
-        poemLV.setAdapter(adapter);
+        poemRV.setAdapter(adapter);
+        poemRV.getLayoutManager().scrollToPosition(position);
+
+        //poemRV.findViewHolderForAdapterPosition(position);
+
+      //  poemRV.setSaveEnabled(true);
+       // poemRV.set
 
     }
 
@@ -61,7 +66,7 @@ public class PoemShowFragment extends Fragment {
 
        // poemLV.smoothScrollToPosition(position);
        // poemLV.smoothScrollToPosition(position,20);
-        poemLV.setSelection(position);
+      //  poemLV.setSelection(position);
 
     }
 }
