@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,7 @@ public class SettingsFragment extends Fragment{
     private String font_name=null;
     private FontChangeListener fontChangeListener;
     private String[] fontnamesWithoutExtension=null;
+    private ConstraintLayout settingsLayout;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -45,6 +48,7 @@ public class SettingsFragment extends Fragment{
         demo_text_TV = v.findViewById(R.id.show_demo_text);
         fontSpinner = v.findViewById(R.id.font_spinner);
         applyBtn = v.findViewById(R.id.apply_btn);
+        settingsLayout = v.findViewById(R.id.setting_layout);
 
         applyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +72,7 @@ public class SettingsFragment extends Fragment{
 
         int numberOfFonts = Utils.fontsNames.length;
 
-        fontnamesWithoutExtension= new String[numberOfFonts+5];
+        fontnamesWithoutExtension= new String[numberOfFonts];
 
         for (int i=0; i<numberOfFonts; i++){
             fontnamesWithoutExtension[i] = Utils.fontsNames[i];
@@ -82,7 +86,10 @@ public class SettingsFragment extends Fragment{
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
                 font_name = Utils.fontsNames[i];
-                Toast.makeText(getActivity(), ""+font_name, Toast.LENGTH_SHORT).show();
+
+                Log.d("font_name",font_name);
+
+                Toast.makeText(getActivity(), font_name, Toast.LENGTH_SHORT).show();
                 Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"Fonts/"+font_name);
                 demo_text_TV.setTypeface(tf);
               //  demo_text_TV.setText(R.string.sample_text);
@@ -95,6 +102,14 @@ public class SettingsFragment extends Fragment{
                 Toast.makeText(getActivity(), "Nothing Selected", Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        int deviceHeight = Utils.getSizeInPixel(getActivity(),Utils.DEVICE_HEIGHT);
+        int dp = Utils.convertPixelsToDp(deviceHeight,getActivity());
+        settingsLayout.setMinHeight(dp);
+
+
+
 
         return v;
 

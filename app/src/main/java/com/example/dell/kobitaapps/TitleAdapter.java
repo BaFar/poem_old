@@ -37,9 +37,9 @@ public class TitleAdapter extends RecyclerView.Adapter<ReactiveTitleViewHolder> 
     @Override
     public void onBindViewHolder(ReactiveTitleViewHolder holder, int position) {
         holder.titleTV.setTypeface(Utils.getTypeface(context));
-        holder.titleTV.setText(poemTitles[position]);
+        holder.titleTV.setText(String.valueOf(position)+". "+poemTitles[position]);
         if (position == 16 ){
-            holder.titleTV.setText(Html.fromHtml("<font face=\"Choco cooky\">"+poemTitles[position]+"</font>"));
+            holder.titleTV.setText(String.valueOf(position)+". "+Html.fromHtml("<font face=\"Choco cooky\">"+poemTitles[position]+"</font>"));
         }
         holder.setTitlePos(position);
     }

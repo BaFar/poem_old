@@ -218,10 +218,22 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_share) {
            shareApkItself();
+
         } else if (id == R.id.nav_rating){
-            Toast.makeText(this, "rating will be added soon", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "rating will be added soon", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            // here id of other, id must change later
+            String appIDLink = "https://play.google.com/store/apps/details?id=com.cubeactive.qnotelistfree";
+            intent.setData(Uri.parse(appIDLink));
+           startActivity(intent);
+
         }  else if (id == R.id.nav_more_apps) {
-            Toast.makeText(this, "more apps option will be added soon", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "more apps option will be added soon", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            // must change later
+            String accountIDLink ="https://play.google.com/store/apps/developer?id=Cubeactive";
+            intent.setData(Uri.parse(accountIDLink));
+            startActivity(intent);
         }else {
 
             Toast.makeText(this, "Unknown Action", Toast.LENGTH_SHORT).show();
@@ -292,5 +304,11 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+
 }
 /*F:\Android\sdk\Platform-toolsadb connect 192.168.0.100*/
+//First you will have to know your id in Google Play. To find out search your app in Google Play and check the url.
+//For example:
+//https://play.google.com/store/apps/details?id=com.cubeactive.qnotelistfree
+//This is the url of one of my apps. The id is this part: com.cubeactive.qnotelistfree
+//Note this id because we will need it in our code.
