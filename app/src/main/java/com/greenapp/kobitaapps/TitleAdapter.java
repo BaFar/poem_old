@@ -1,4 +1,4 @@
-package com.example.dell.kobitaapps;
+package com.greenapp.kobitaapps;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -6,9 +6,6 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import java.util.zip.Inflater;
 
 /**
  * Created by DELL on 2/15/2018.
@@ -36,10 +33,12 @@ public class TitleAdapter extends RecyclerView.Adapter<ReactiveTitleViewHolder> 
 
     @Override
     public void onBindViewHolder(ReactiveTitleViewHolder holder, int position) {
+        int counter = position +1;
         holder.titleTV.setTypeface(Utils.getTypeface(context));
-        holder.titleTV.setText(String.valueOf(position)+". "+poemTitles[position]);
+        holder.titleTV.setText(String.valueOf(counter)+". "+poemTitles[position]);
         if (position == 16 ){
-            holder.titleTV.setText(String.valueOf(position)+". "+Html.fromHtml("<font face=\"Choco cooky\">"+poemTitles[position]+"</font>"));
+            holder.titleTV.setText(Html.fromHtml("<font face=\"Choco cooky\">"+poemTitles[position]+"</font>"));
+            //String.valueOf(counter)+". "+
         }
         holder.setTitlePos(position);
     }

@@ -1,4 +1,4 @@
-package com.example.dell.kobitaapps;
+package com.greenapp.kobitaapps;
 
 import android.content.Context;
 import android.content.SharedPreferences;

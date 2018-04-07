@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dell.kobitaapps.PoetFragment">
+    tools:context="com.greenapp.kobitaapps.PoetFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -33,9 +33,9 @@
             android:layout_marginBottom="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="details text"
+            android:text="@string/poet_details"
             android:textSize="16sp"
-            android:lineSpacingExtra="8dp"/>
+            android:lineSpacingExtra="10dp"/>
     </LinearLayout>
 
 </ScrollView>
